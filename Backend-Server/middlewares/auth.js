@@ -6,7 +6,6 @@ const User = require("../models/User");
 exports.auth =async (req, res, next) => {
   try {
     //extract jwt token
-   
     const token = req.cookies.token || req.body.token || req.header("Authorization").replace("Bearer ","");
     // console.log("token inside auth",token);
     //if token missing,then return response
@@ -18,7 +17,6 @@ exports.auth =async (req, res, next) => {
     }
 
     //verify the token
-   
     try {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
       // console.log(decode);

@@ -26,7 +26,7 @@ const Sidebar = () => {
 
   return (
     <div className='text-richblack-300 lg:h-[100vh]  bg-richblack-800'>
-        <div className='flex min-w-[222px] flex-col border-r-[1px] border-r-richblack-700
+        <div className='flex min-w-[222px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800
          py-10'>
 
             <div className='flex flex-col'>

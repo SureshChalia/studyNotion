@@ -35,14 +35,14 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
   return (
     <div className="flex flex-col space-y-2">
 
-        <label htmlFor={name} className='text-richblack-5 text-sm'>{label}<sup>*</sup></label>
-        <div>
+        <label htmlFor={name} className='text-richblack-5 text-sm'>{label}<sup className='text-pink-200'>*</sup></label>
+        <div className="flex flex-col items-start space-y-2">
             <input
                 type='text'
                 id={name}
                 value={requirement}
                 onChange={(e) => setRequirement(e.target.value)}
-                className='w-full rounded h-8'
+                className='w-full form-style'
             />
             <button
             type='button'
@@ -54,7 +54,7 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
 
         {
             requirementList.length > 0 && (
-                <ul>
+                <ul className="mt-2 list-inside list-disc">
                     {
                         requirementList.map((requirement, index) => (
                             <li key={index} className='flex items-center text-richblack-5 gap-2'>
@@ -62,7 +62,7 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
                                 <button
                                 type='button'
                                 onClick={() => handleRemoveRequirement(index)}
-                                className='text-xs text-pure-greys-300'>
+                                className='ml-2 text-xs text-pure-greys-300'>
                                     clear
                                 </button>
                             </li>
@@ -72,7 +72,7 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
             )
         }
         {errors[name] && (
-            <span>
+            <span className="ml-2 text-xs tracking-wide text-pink-200">
                 {label} is required
             </span>
         )}

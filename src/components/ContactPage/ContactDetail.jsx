@@ -32,14 +32,14 @@ const ContactDetail = () => {
         let Icon = Icon1[element.icon] || Icon2[element.icon] || Icon3[element.icon]
         return (
           <div
-            className='  className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200"'
+            className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200"
             key={index}>
             <div className="flex flex-row items-center gap-3">
               <Icon size={25} />
               <h1 className="text-lg font-semibold text-richblack-5">{element.heading}</h1>
             </div>
-            <p className='ml-10 text-richblack-300'>{element.description}</p>
-            <p className='ml-10 text-richblack-300'>{element.details}</p>
+            <p className='font-medium'>{element.description}</p>
+            <p className='font-semibold'>{element.details}</p>
           </div>
         )
       })}

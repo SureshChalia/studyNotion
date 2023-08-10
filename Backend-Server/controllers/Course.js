@@ -19,13 +19,18 @@ exports.createCourse = async (req, res) => {
       courseDescription,
       whatYouWillLearn,
       price,
-      tag,
+      tag:_tag,
       category,
       status,
-      instructions,
+      instructions:_instructions,
     } = req.body;
     //get thumbnail
     const thumbnail = req.files.thumbnailImage;
+
+    
+    // Convert the tag and instructions from stringified Array to Array
+    const tag = JSON.parse(_tag)
+    const instructions = JSON.parse(_instructions)
 
     //validation :- Check if any of the required fields are missing
     if (!courseName ||
@@ -354,7 +359,7 @@ exports.getInstructorCourses = async (req, res) => {
     // Find all courses belonging to the instructor
     const instructorCourses = await Course.find({
       instructor: instructorId,
-    }).sort({ createdAt: -1 })
+    }).sort({ createdAt: -1 }).populate({path:"courseContent",populate:{path:"subSection"}})
 
     // Return the instructor's courses
     res.status(200).json({

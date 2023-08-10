@@ -86,27 +86,6 @@ exports.updateSection = async (req, res) => {
   }
 };
 
-// delete a section
-// exports.deleteSection = async (req, res) => {
-//   try {
-//     //get id - assuming that we are sending id in params
-//     const { sectionId } = req.body;
-//     //use findByIdAndDelete
-//     await Section.findByIdAndDelete(sectionId);
-//     //return response
-//     return res.status(200).json({
-//       success: true,
-//       message: "Section deleted successfully",
-//     })
-//   } catch (error) {
-//     return res.status(500).json({
-//       success: false,
-//       message: "unable to delete Section,please try again",
-//       error: error.message,
-//     })
-//   }
-// }
-
 exports.deleteSection = async (req, res) => {
   try {
     const { sectionId, courseId } = req.body;

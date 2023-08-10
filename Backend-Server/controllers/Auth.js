@@ -234,9 +234,9 @@ exports.sendOTP = async (req, res) => {
 
     //check unique otp or not 
     const result = await OTP.findOne({ otp: otp });
-    console.log("Result is Generate OTP Func");
-    console.log("OTP", otp);
-    console.log("Result", result);
+    // console.log("Result is Generate OTP Func");
+    // console.log("OTP", otp);
+    // console.log("Result", result);
     while (result) {
       otp = otpGenerator(6, {
         upperCaseAlphabets: false,

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {Swiper, SwiperSlide} from "swiper/react"
 import "swiper/css"
 import "swiper/css/free-mode"
@@ -19,7 +18,7 @@ const CourseSlider = ({Courses}) => {
                     spaceBetween={20}
                     pagination={true}
                     FreeMode={true}
-                    modules={[Autoplay,Pagination,Navigation]}
+                    modules={[FreeMode,Autoplay,Pagination,Navigation]}
                     className="mySwiper"
                     autoplay={{
                     delay: 1500,
@@ -27,7 +26,7 @@ const CourseSlider = ({Courses}) => {
                     }}
                     navigation={true}
                     breakpoints={{
-                        1024:{slidesPerView:2,}
+                        1024:{slidesPerView:3,}
                     }}
                 >
                     {
@@ -39,7 +38,7 @@ const CourseSlider = ({Courses}) => {
                     }   
                 </Swiper>
             ) : (
-                <p>No Course Found</p>
+                <p className="text-xl text-richblack-5">No Course Found</p>
             )
 
         }

@@ -25,10 +25,6 @@ const userSchema = new mongoose.Schema({
     enum: ["Admin", "Student", "Instructor"],
     required: true,
   },
-  // contactNumber:{
-  //   type:Number,
-  //   required:true,
-  // },
   active: {
     type: Boolean,
     default: true,

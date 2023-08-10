@@ -3,6 +3,7 @@ import { setUser } from "../../slices/profileSlice"
 import { apiConnector } from "../apiconnector"
 import { settingsEndpoints } from "../apis"
 import { logout } from "./authAPI"
+import { json } from "react-router-dom"
 
 const {
   UPDATE_DISPLAY_PICTURE_API,
@@ -61,6 +62,7 @@ export function updateProfile(token, formData) {
       dispatch(
         setUser({ ...response.data.updatedUserDetails, image: userImage })
       )
+      localStorage.setItem("user",JSON.stringify({ ...response.data.updatedUserDetails}));
       toast.success("Profile Updated Successfully")
     } catch (error) {
       console.log("UPDATE_PROFILE_API API ERROR............", error)

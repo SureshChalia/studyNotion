@@ -5,6 +5,7 @@ import { updateCompletedLectures } from "../../slices/viewCourseSlice"
 import { apiConnector } from "../apiconnector"
 import { courseEndpoints } from "../apis"
 
+
 const {
   COURSE_DETAILS_API,
   COURSE_CATEGORIES_API,
@@ -50,7 +51,7 @@ export const fetchCourseDetails = async (courseId) => {
     const response = await apiConnector("POST", COURSE_DETAILS_API, {
       courseId,
     })
-    // console.log("COURSE_DETAILS_API API RESPONSE............", response)
+    console.log("COURSE_DETAILS_API API RESPONSE............", response)
 
     if (!response.data.success) {
       throw new Error(response.data.message)

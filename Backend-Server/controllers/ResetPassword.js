@@ -24,7 +24,7 @@ exports.resetPasswordToken = async (req, res) => {
         token: token,
         resetPasswordExpires: Date.now() + 3600000,
       },
-      { new: true }
+      { new: true } // from {new:true} this we get updated user details 
       );
       console.log("DETAILS", updatedDetails);
     //create url

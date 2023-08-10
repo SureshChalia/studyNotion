@@ -34,8 +34,8 @@ function App() {
 
   const { user } = useSelector((state) => state.profile)
   return (
-    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
-      <Navbar />
+    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter mt-[3rem]">
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />

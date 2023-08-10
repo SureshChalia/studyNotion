@@ -160,7 +160,7 @@ const Footer = () => {
               );
             })}
           </div>
-          <div className="text-center">Made with ❤️ Pascal © 2023 Studynotion</div>
+          <div className="text-center">Made with ❤️ SureshChalia © 2023 Studynotion</div>
         </div>
       </div>
     </div>

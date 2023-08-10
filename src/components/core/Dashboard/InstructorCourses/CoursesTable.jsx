@@ -3,21 +3,20 @@ import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table"
 
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaCheck } from "react-icons/fa"
 import { FiEdit2 } from "react-icons/fi"
 import { HiClock } from "react-icons/hi"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
 import { formatDate } from "../../../../services/formatDate"
-
-// import { formatDate } from "../../../../services/formatDate"
 import {
   deleteCourse,
   fetchInstructorCourses,
 } from "../../../../services/operations/courseDetailsAPI"
 import { COURSE_STATUS } from "../../../../utils/constants"
 import ConfirmationModal from "../../../common/ConfirmationModal"
+import {CalculateCourseTime} from "../../../../utils/videodurtion";
 
 export default function CoursesTable({ courses, setCourses }) {
   const dispatch = useDispatch()
@@ -37,6 +36,8 @@ export default function CoursesTable({ courses, setCourses }) {
     setConfirmationModal(null)
     setLoading(false)
   }
+
+
 
   // console.log("All Course ", courses)
 
@@ -64,7 +65,6 @@ export default function CoursesTable({ courses, setCourses }) {
             <Tr>
               <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
                 No courses found
-                {/* TODO: Need to change this state */}
               </Td>
             </Tr>
           ) : (
@@ -93,7 +93,6 @@ export default function CoursesTable({ courses, setCourses }) {
                         : course.courseDescription}
                     </p>
                     <p className="text-[12px] text-white">
-                      {/* Created: {formatDate(course.createdAt)} */}
                       Created: {formatDate(course.createdAt)}
                     </p>
                     {course.status === COURSE_STATUS.DRAFT ? (
@@ -112,7 +111,7 @@ export default function CoursesTable({ courses, setCourses }) {
                   </div>
                 </Td>
                 <Td className="text-sm font-medium text-richblack-100">
-                  2hr 30min
+                  {CalculateCourseTime(course.courseContent)}
                 </Td>
                 <Td className="text-sm font-medium text-richblack-100">
                   ₹{course.price}

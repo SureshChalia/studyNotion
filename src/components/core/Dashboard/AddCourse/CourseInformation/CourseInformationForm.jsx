@@ -229,7 +229,7 @@ export default function CourseInformationForm() {
                     {...register("courseCategory", { required: true })}
                     defaultValue=""
                     id="courseCategory"
-                    className="form-style w-full rounded h-8"
+                    className="form-style w-full"
                 >
                     <option value="" disabled className="text-richblack-800">
                         Choose a Category
