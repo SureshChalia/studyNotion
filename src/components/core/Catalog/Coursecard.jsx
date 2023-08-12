@@ -21,7 +21,7 @@ const Coursecard = ({ course, Height }) => {
                         <img
                             src={course?.thumbnail}
                             alt="course thumnail"
-                            className={`${Height} w-full rounded-xl object-cover `}
+                            className={`${Height} h-48 w-96 rounded-xl  object-fill `}
                         />
                     </div>
                     <div className="flex flex-col gap-2 px-1 py-3">
