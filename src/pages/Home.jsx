@@ -11,7 +11,9 @@ import InstructorSection from '../components/core/HomePage/InstructorSection'
 import Footer from '../components/common/Footer'
 import ExploreMore from '../components/core/HomePage/ExploreMore'
 import ReviewSlider from '../components/common/ReviewSlider'
+
 const Home = () => {
+  
   return (
     <div>
       {/* section-1 */}
@@ -67,14 +69,14 @@ const Home = () => {
             ctabtn1={
               {
                 btnText: "try it yourself",
-                linkto: "/signup",
+                link: "/signup",
                 active: true,
               }
             }
             ctabtn2={
               {
                 btnText: "learn more",
-                linkto: "/login",
+                link: "/login",
                 active: false,
               }
             }
@@ -99,14 +101,14 @@ const Home = () => {
             ctabtn1={
               {
                 btnText: "continue Lesson",
-                linkto: "/signup",
+                link: "/signup",
                 active: true,
               }
             }
             ctabtn2={
               {
                 btnText: "learn more",
-                linkto: "/login",
+                link: "/login",
                 active: false,
               }
             }
