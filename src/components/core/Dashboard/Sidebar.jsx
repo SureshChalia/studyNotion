@@ -15,6 +15,7 @@ const Sidebar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [confirmationModal, setConfirmationModal] = useState(null);
+  
 
     if(profileLoading || authLoading) {
         return (
@@ -25,8 +26,8 @@ const Sidebar = () => {
     }
 
   return (
-    <div className='text-richblack-300 lg:h-[100vh]  bg-richblack-800'>
-        <div className='flex min-w-[222px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800
+    <div className='text-richblack-300 lg:h-[100vh]  bg-richblack-800 relative'>
+        <div className='flex sm:min-w-[222px] min-w-[50px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800
          py-10'>
 
             <div className='flex flex-col'>
@@ -61,7 +62,7 @@ const Sidebar = () => {
 
                         <div className='flex items-center gap-x-2 ml-5 '>
                             <VscSignOut className='text-lg '/>
-                            <span className=''>Logout</span>
+                            <span className='sm:flex hidden'>Logout</span>
                         </div>
 
                     </button>

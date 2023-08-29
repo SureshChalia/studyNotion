@@ -74,6 +74,7 @@ export default function ChangeProfilePicture() {
                 className="hidden"
                 accept="image/png, image/gif, image/jpeg"
               />
+              <div className="flex flex-wrap gap-2">
               <button
                 onClick={handleClick}
                 disabled={loading}
@@ -88,6 +89,7 @@ export default function ChangeProfilePicture() {
 
               />
               <div>
+              </div>
               {!loading && (
                   <FiUpload className="text-lg text-richblack-900" />
                 )}

@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import { IoIosArrowDropdownCircle } from "react-icons/io"
 
+
 function Navbar() {
 
   const { token } = useSelector((state) => state.auth);
@@ -21,6 +22,7 @@ function Navbar() {
   const [subLinks, setSubLinks] = useState([]);
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
+ 
 
   const fetchSublinks = async () => {
     try {
@@ -78,7 +80,8 @@ function Navbar() {
                           <>
                             {subLinks
                               ?.map((subLink, i) => (
-                                <Link
+                               
+                                <Link 
                                   to={`/catalog/${subLink.name
                                     .split(" ")
                                     .join("-")

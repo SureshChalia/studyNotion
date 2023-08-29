@@ -62,7 +62,7 @@ exports.signUp = async (req, res) => {
 
     //find most recent otp for the email
     const recentOtp = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
-    console.log(recentOtp);
+    // console.log(recentOtp);
 
     //validate OTP
     if (recentOtp.length === 0) {
@@ -147,18 +147,6 @@ exports.login = async (req, res) => {
       })
     }
 
-    //verify password & generate a JWT token
-    // if (await bcrypt.compare(password, user.password)) {
-    //   const payload = {
-    //     email: user.email,
-    //     id: user._id,
-    //     accountType: user.accountType,
-    //   }
-    //creat token
-    // let token = jwt.sign(payload, process.env.JWT_SECRET, {
-    //   expiresIn: "2h",
-    // });
-
     // Generate JWT token and Compare Password
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
@@ -230,7 +218,7 @@ exports.sendOTP = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     })
-    console.log("OTP generated", otp);
+    // console.log("OTP generated", otp);
 
     //check unique otp or not 
     const result = await OTP.findOne({ otp: otp });
@@ -249,7 +237,7 @@ exports.sendOTP = async (req, res) => {
 
     //creat an entry in db for otp 
     const otpBody = await OTP.create(otpPayload);
-    console.log("OTP Body", otpBody);
+    // console.log("OTP Body", otpBody);
 
     //return response successfully
     res.status(200).json({
@@ -289,15 +277,6 @@ exports.changePassword = async (req, res) => {
         .status(401)
         .json({ success: false, message: "The password is incorrect" });
     }
-
-    // Match new password and confirm new password
-    // if (newPassword !== confirmNewPassword) {
-    //   // If new password and confirm new password do not match, return a 400 (Bad Request) error
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "The password and confirm password does not match",
-    //   });
-    // }
 
     // Update password
     const encryptedPassword = await bcrypt.hash(newPassword, 10);

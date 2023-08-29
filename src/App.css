@@ -503,3 +503,13 @@ details > summary::-webkit-details-marker {
   margin-left: -80px;
  }
 }
+
+
+.sidebar {
+  left: -250px; 
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar-visible {
+  left: 0; 
+}

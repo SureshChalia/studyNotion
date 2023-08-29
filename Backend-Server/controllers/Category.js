@@ -15,7 +15,7 @@ exports.createCategory = async (req, res) => {
 			name: name,
 			description: description,
 		});
-		console.log(CategorysDetails);
+		// console.log(CategorysDetails);
 		return res.status(200).json({
 			success: true,
 			message: "Category Created Successfully",
@@ -83,7 +83,7 @@ exports.categoryPageDetails = async (req, res) => {
 
 		// Get courses for other categories
 		const categoriesExceptSelected = await Category.find({
-			_id: { $ne: categoryId },
+			_id: { $ne: categoryId }, //$ne stands for not equal & $eq stands for equal
 		})
 		let differentCategory = await Category.findOne(
 			categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
